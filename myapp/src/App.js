@@ -1,4 +1,5 @@
 // ! Create component
+import { useState } from "react";
 import Mybutton from "./Mybutton";
 import Mybutton1 from "./Mybutton1";
 
@@ -103,7 +104,7 @@ import Mybutton1 from "./Mybutton1";
 // }
 
 // ! Updating the screen
-// ? Desigining a counter 
+// ? Desigining a counter
 
 // ? Written in the way of JS
 // import { useState } from "react";
@@ -133,37 +134,64 @@ import Mybutton1 from "./Mybutton1";
 
 // ? React Way
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function CounterButton() {
-  const [counter, setCounter] = useState(0);
-  let increase = () => {
-    setCounter(counter + 1);
-  };
-  let decrease = () => {
-    setCounter(counter - 1);
-  };
-  let reset = () => {
-    setCounter(0);
-  };
+// function CounterButton() {
+//   const [counter, setCounter] = useState(0);
+//   let increase = () => {
+//     setCounter(counter + 1);
+//   };
+//   let decrease = () => {
+//     setCounter(counter - 1);
+//   };
+//   let reset = () => {
+//     setCounter(0);
+//   };
 
-  return (
-    <>
-      {counter} times <br />
-      <button onClick={increase}>Increase</button> <br />
-      <button onClick={decrease}>decrease</button> <br />
-      <button onClick={reset}>Reset</button>
-    </>
-  );
-}
+//   return (
+//     <>
+//       {counter} times <br />
+//       <button onClick={increase}>Increase</button> <br />
+//       <button onClick={decrease}>decrease</button> <br />
+//       <button onClick={reset}>Reset</button>
+//     </>
+//   );
+// }
+
+// export default function MyApp() {
+//   return (
+//     <div>
+//       <h1>Counter to show the use of useState</h1>
+//       <CounterButton />
+//     </div>
+//   );
+// }
+
+// ! hooks
 
 export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
-      <h1>Counter to show the use of useState</h1>
-      <CounterButton />
+      <h1>Counters that update separately</h1>
+      {/* <MyButton /> */}
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
     </div>
   );
 }
 
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
 
