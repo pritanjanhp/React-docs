@@ -103,6 +103,8 @@ import Mybutton1 from "./Mybutton1";
 // }
 
 // ! Updating the screen
+// ? Desigining a counter 
+
 // ? Written in the way of JS
 // import { useState } from "react";
 
@@ -163,3 +165,5 @@ export default function MyApp() {
     </div>
   );
 }
+
+
