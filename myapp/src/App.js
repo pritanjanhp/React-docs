@@ -134,8 +134,6 @@ import Mybutton1 from "./Mybutton1";
 
 // ? React Way
 
-// import { useState } from "react";
-
 // function CounterButton() {
 //   const [counter, setCounter] = useState(0);
 //   let increase = () => {
