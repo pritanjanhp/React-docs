@@ -148,7 +148,7 @@ import Mybutton1 from "./Mybutton1";
 
 //   return (
 //     <>
-//       {counter} times <br />
+//      <h1> counter is {counter} times <br /> </h1>
 //       <button onClick={increase}>Increase</button> <br />
 //       <button onClick={decrease}>decrease</button> <br />
 //       <button onClick={reset}>Reset</button>
@@ -167,29 +167,61 @@ import Mybutton1 from "./Mybutton1";
 
 // ! hooks
 
-export default function MyApp() {
-  const [count, setCount] = useState(0);
+// export default function MyApp() {
+//   const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+//   function handleClick() {
+//     setCount(count + 1);
+//   }
+
+//   return (
+//     <div>
+//       <h1>Counters that update separately</h1>
+//       {/* <MyButton /> */}
+//       <MyButton count={count} onClick={handleClick} />
+//       <MyButton count={count} onClick={handleClick} />
+//       <MyButton count={count} onClick={handleClick} />
+//     </div>
+//   );
+// }
+
+// function MyButton({ count, onClick }) {
+//   return (
+//     <button onClick={onClick}>
+//       Clicked {count} times
+//     </button>
+//   );
+// }
+
+// ! useState Example
+// ? 2 text field
+// export default function MyInput() {
+//   const [text, setText] = useState("hello");
+//   function handleClick(e) {
+//     setText(e.target.value);
+//   }
+
+//   return (
+//     <>
+//       <input value={text} onChange={handleClick} />
+//       <p>You Types : {text}</p>
+//       <button onClick={() => setText("hey")}>Reset</button>
+//     </>
+//   );
+// }
+
+// ? 4 form
+export default function Form() {
+  const [name, setName] = useState("Ram");
+  const [age, setAge] = useState(13);
 
   return (
-    <div>
-      <h1>Counters that update separately</h1>
-      {/* <MyButton /> */}
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
+    <>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <button onClick={() => setAge(age + 1)}>increase age by 1</button>
+      <p>
+        Hello , {name}. You are {age} years old
+      </p>
+    </>
   );
 }
-
-function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
-  );
-}
-
